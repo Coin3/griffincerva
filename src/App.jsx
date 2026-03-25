@@ -1,23 +1,41 @@
+import { Routes, Route, Link, useLocation } from "react-router-dom";
+import Home from "./components/Home";
+import BlogList from "./components/BlogList";
+import BlogPost from "./components/BlogPost";
 import "./App.css";
 
 const nav = [
-  { label: "About", href: "#about" },
-  { label: "Blog", href: "#blog" },
-  { label: "Projects", href: "#projects" },
+  { label: "About", to: "/#about" },
+  { label: "Blog", to: "/blog" },
+  { label: "Projects", to: "/#projects" },
 ];
+
+function NavLink({ to, children }) {
+  const location = useLocation();
+  const isActive =
+    to === "/blog"
+      ? location.pathname.startsWith("/blog")
+      : location.pathname === "/" && to.includes("#");
+
+  return (
+    <Link to={to} className={isActive ? "nav--active" : undefined}>
+      {children}
+    </Link>
+  );
+}
 
 function App() {
   return (
     <div className="layout">
       <header className="header">
-        <a className="logo" href="#">
+        <Link className="logo" to="/">
           Griffin Cerva
-        </a>
+        </Link>
         <nav className="nav" aria-label="Primary">
           <ul>
             {nav.map((item) => (
-              <li key={item.href}>
-                <a href={item.href}>{item.label}</a>
+              <li key={item.to}>
+                <NavLink to={item.to}>{item.label}</NavLink>
               </li>
             ))}
           </ul>
@@ -25,39 +43,15 @@ function App() {
       </header>
 
       <main className="main">
-        <section className="hero" id="about">
-          <p className="eyebrow">Personal site</p>
-          <h1 className="headline">
-            Public notes, writing, and experiments in one place.
-          </h1>
-          <p className="lede">
-            This is a minimal home base. Swap the copy, wire links to real
-            pages, and grow the sections as you add posts and projects.
-          </p>
-        </section>
-
-        <section className="grid" aria-label="Highlights">
-          <article className="card" id="blog">
-            <h2>Blog</h2>
-            <p className="card__meta">Long-form writing &amp; updates</p>
-            <p>Placeholder for your latest posts or a link to an archive.</p>
-            <a className="card__link" href="#">
-              Read the blog →
-            </a>
-          </article>
-          <article className="card" id="projects">
-            <h2>Projects</h2>
-            <p className="card__meta">Things you have shipped or tinkered with</p>
-            <p>Showcase repos, demos, and odd experiments with short blurbs.</p>
-            <a className="card__link" href="#">
-              Browse projects →
-            </a>
-          </article>
-        </section>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/blog" element={<BlogList />} />
+          <Route path="/blog/:slug" element={<BlogPost />} />
+        </Routes>
       </main>
 
       <footer className="footer">
-        <span className="footer__mono">© {new Date().getFullYear()}</span>
+        <span className="footer__mono">&copy; {new Date().getFullYear()}</span>
         <span className="footer__sep" aria-hidden="true">
           /
         </span>

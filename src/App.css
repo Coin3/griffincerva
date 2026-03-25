@@ -158,3 +158,231 @@
 .footer a:hover {
   color: var(--accent);
 }
+
+/* --- Active nav --- */
+.nav--active {
+  color: var(--text);
+}
+
+/* --- Home card post list --- */
+.card__post-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.card__post-list li a {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.75rem;
+  font-size: 0.88rem;
+  color: var(--muted);
+  transition: color 0.15s ease;
+}
+
+.card__post-list li a:hover {
+  color: var(--text);
+}
+
+.card__post-date {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--border);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* --- Blog list --- */
+.blog-list__header {
+  margin-bottom: 2.5rem;
+}
+
+.blog-list__title {
+  margin: 0 0 0.5rem;
+  font-size: clamp(1.65rem, 4vw, 2.25rem);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+}
+
+.blog-list__desc {
+  margin: 0;
+  color: var(--muted);
+  font-size: 1.05rem;
+}
+
+.blog-list__posts {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.blog-list__item {
+  border-top: 1px solid var(--border);
+}
+
+.blog-list__item:last-child {
+  border-bottom: 1px solid var(--border);
+}
+
+.blog-list__link {
+  display: block;
+  padding: 1.25rem 0;
+  color: inherit;
+  transition: none;
+}
+
+.blog-list__link:hover {
+  color: inherit;
+}
+
+.blog-list__link:hover .blog-list__post-title {
+  color: var(--accent);
+}
+
+.blog-list__date {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--muted);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.blog-list__post-title {
+  margin: 0.3rem 0 0.35rem;
+  font-size: 1.15rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  transition: color 0.15s ease;
+}
+
+.blog-list__summary {
+  margin: 0;
+  font-size: 0.92rem;
+  color: var(--muted);
+}
+
+/* --- Blog post --- */
+.blog-post__header {
+  margin-bottom: 2rem;
+}
+
+.blog-post__back {
+  display: inline-block;
+  margin-bottom: 1.5rem;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.blog-post__back:hover {
+  color: var(--accent);
+}
+
+.blog-post__title {
+  margin: 0 0 0.5rem;
+  font-size: clamp(1.65rem, 4vw, 2.25rem);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.03em;
+}
+
+.blog-post__date {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--muted);
+  letter-spacing: 0.04em;
+}
+
+.blog-post__muted {
+  color: var(--muted);
+}
+
+/* --- Blog post body (markdown) --- */
+.blog-post__body h2 {
+  margin: 2rem 0 0.75rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.blog-post__body h3 {
+  margin: 1.5rem 0 0.5rem;
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+.blog-post__body p {
+  margin: 0 0 1rem;
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+.blog-post__body ul,
+.blog-post__body ol {
+  margin: 0 0 1rem;
+  padding-left: 1.5rem;
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+.blog-post__body li {
+  margin-bottom: 0.35rem;
+}
+
+.blog-post__body strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.blog-post__body em {
+  font-style: italic;
+}
+
+.blog-post__body code {
+  font-family: var(--font-mono);
+  font-size: 0.85em;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  padding: 0.15em 0.35em;
+}
+
+.blog-post__body pre {
+  margin: 0 0 1rem;
+  padding: 1rem 1.25rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  overflow-x: auto;
+}
+
+.blog-post__body pre code {
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+
+.blog-post__body blockquote {
+  margin: 0 0 1rem;
+  padding: 0.25rem 0 0.25rem 1rem;
+  border-left: 3px solid var(--accent);
+  color: var(--muted);
+  font-style: italic;
+}
+
+.blog-post__body hr {
+  margin: 2rem 0;
+  border: none;
+  border-top: 1px solid var(--border);
+}
