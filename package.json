@@ -8,7 +8,8 @@
     "build": "vite build",
     "preview": "vite preview",
     "pages:create": "wrangler pages project create griffincerva",
-    "deploy": "npm run build && wrangler pages deploy dist --project-name=griffincerva"
+    "deploy": "npm run build && wrangler deploy",
+    "deploy:pages": "npm run build && wrangler pages deploy dist --project-name=griffincerva"
   },
   "dependencies": {
     "react": "^18.3.1",
