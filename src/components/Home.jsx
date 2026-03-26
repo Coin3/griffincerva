@@ -14,6 +14,10 @@ export default function Home() {
 
   return (
     <>
+      <p style={{ fontSize: "3rem", fontWeight: "bold", color: "hotpink", textAlign: "center", margin: "2rem 0" }}>
+        Griffin loves Yuri! 🩷
+      </p>
+
       <section className="hero" id="about">
         <p className="eyebrow">Personal site</p>
         <h1 className="headline">
